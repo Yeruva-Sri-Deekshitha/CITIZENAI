@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About - CitizenAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+
+    <!-- Navbar -->
+    <nav class="bg-blue-600 text-white px-6 py-4 flex justify-between items-center">
+        <div class="text-xl font-bold">CitizenAI</div>
+        <div class="space-x-4">
+            <a href="{{ url_for('index') }}" class="hover:underline">Home</a>
+            <a href="{{ url_for('chat_bp.chat') }}" class="hover:underline">Chat</a>
+            <a href="{{ url_for('dashboard_bp.dashboard') }}" class="hover:underline">Dashboard</a>
+            <a href="{{ url_for('about') }}" class="hover:underline">About</a>
+            {% if session.get('user') %}
+                <span class="font-semibold">👤 {{ session['user'] }}</span>
+                <a href="{{ url_for('auth_bp.logout') }}" class="hover:underline">Logout</a>
+            {% else %}
+                <a href="{{ url_for('auth_bp.signup') }}" class="hover:underline">Sign Up</a>
+                <a href="{{ url_for('auth_bp.login') }}" class="hover:underline">Login</a>
+            {% endif %}
+        </div>
+    </nav>
+
+    <!-- About Content -->
+    <div class="max-w-4xl mx-auto p-8 bg-white shadow rounded mt-10">
+        <h1 class="text-3xl font-bold mb-4">About CitizenAI</h1>
+        <p class="text-gray-700 mb-4">
+            CitizenAI is an AI-powered chatbot designed to help citizens get quick responses to government-related queries. 
+            The platform also analyzes sentiment from user feedback to better understand public opinion.
+        </p>
+        <p class="text-gray-700">
+            Built with Flask, MongoDB, Hugging Face LLMs, and Tailwind CSS, CitizenAI enables transparent communication between 
+            governments and citizens using cutting-edge natural language technology.
+        </p>
+    </div>
+</body>
+</html>
