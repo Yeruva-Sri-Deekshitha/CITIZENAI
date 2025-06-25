@@ -1,4 +1,4 @@
-from flask import Flask, render_template, session
+from flask import Flask, render_template, session, redirect, url_for
 from database.db import init_db
 import os
 from dotenv import load_dotenv
@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 load_dotenv()
 
 app = Flask(__name__)
-app.secret_key = os.getenv("SECRET_KEY", "your-secret-key-change-this")
+# Generate a simple secret key - you can change this
+app.secret_key = os.getenv("SECRET_KEY", "citizenai-secret-key-change-this-in-production")
 
 # MongoDB setup
 mongo = init_db(app)
@@ -36,7 +37,7 @@ def index():
 def about():
     return render_template("about.html")
 
-# Test MongoDB connection (admin only)
+# Test MongoDB connection
 @app.route("/ping-db")
 def ping_db():
     if 'user_id' not in session:
@@ -59,4 +60,4 @@ def inject_user():
     return dict(current_user_id=user_id, current_user_name=user_name)
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(debug=True, host='0.0.0.0', port=5000)
