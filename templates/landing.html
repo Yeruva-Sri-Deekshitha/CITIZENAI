@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to CitizenAI</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gradient-to-br from-blue-50 to-indigo-100 min-h-screen">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-7xl mx-auto px-4">
+            <div class="flex justify-between items-center py-4">
+                <div class="text-2xl font-bold text-blue-600">CitizenAI</div>
+                <div class="space-x-4">
+                    <a href="{{ url_for('about') }}" class="text-gray-600 hover:text-blue-600 transition duration-300">About</a>
+                    <a href="{{ url_for('auth_bp.login') }}" class="bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition duration-300">Login</a>
+                    <a href="{{ url_for('auth_bp.signup') }}" class="border border-blue-600 text-blue-600 px-4 py-2 rounded-lg hover:bg-blue-600 hover:text-white transition duration-300">Sign Up</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="max-w-7xl mx-auto px-4 py-16">
+        <div class="text-center">
+            <h1 class="text-5xl font-bold text-gray-800 mb-6">
+                Welcome to <span class="text-blue-600">CitizenAI</span>
+            </h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+                Your AI-powered assistant for government services and citizen queries. 
+                Get instant answers, provide feedback, and help improve public services.
+            </p>
+            <div class="space-x-4">
+                <a href="{{ url_for('auth_bp.signup') }}" class="bg-blue-600 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-700 transition duration-300 inline-block">
+                    Get Started
+                </a>
+                <a href="{{ url_for('about') }}" class="border border-gray-400 text-gray-700 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition duration-300 inline-block">
+                    Learn More
+                </a>
+            </div>
+        </div>
+
+        <!-- Features Section -->
+        <div class="mt-20 grid md:grid-cols-3 gap-8">
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="text-4xl mb-4">🤖</div>
+                <h3 class="text-xl font-semibold mb-2">AI-Powered Chat</h3>
+                <p class="text-gray-600">Get instant answers to your government-related questions using advanced AI technology.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="text-4xl mb-4">📊</div>
+                <h3 class="text-xl font-semibold mb-2">Sentiment Analysis</h3>
+                <p class="text-gray-600">Your feedback is analyzed to help improve government services and citizen satisfaction.</p>
+            </div>
+            <div class="bg-white p-6 rounded-xl shadow-lg text-center">
+                <div class="text-4xl mb-4">📈</div>
+                <h3 class="text-xl font-semibold mb-2">Dashboard Insights</h3>
+                <p class="text-gray-600">View analytics and insights about citizen feedback and service improvements.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2024 CitizenAI. Built with Flask, MongoDB, and AI technology.</p>
+        </div>
+    </footer>
+</body>
+</html>
